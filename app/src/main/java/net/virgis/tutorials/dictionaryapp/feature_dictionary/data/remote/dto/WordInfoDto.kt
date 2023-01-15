@@ -1,7 +1,6 @@
 package net.virgis.tutorials.dictionaryapp.feature_dictionary.data.remote.dto
 
 import net.virgis.tutorials.dictionaryapp.feature_dictionary.data.local.entity.WordInfoEntity
-import net.virgis.tutorials.dictionaryapp.feature_dictionary.domain.model.WordInfo
 
 data class WordInfoDto(
     val license: License,

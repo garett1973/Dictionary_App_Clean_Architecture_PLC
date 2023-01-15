@@ -34,6 +34,11 @@ class WordInfoRepositoryImpl(
                 message = "Could not reach server.",
                 data = wordInfos
             ))
+        } catch (e: java.lang.NullPointerException) {
+            emit(Resource.Error(
+                message = "Word was not found, but your code expects a result",
+                data = null
+            ))
         }
 
         val newWordInfos = dao.getWordInfos(word).map { it.toWordInfo() }

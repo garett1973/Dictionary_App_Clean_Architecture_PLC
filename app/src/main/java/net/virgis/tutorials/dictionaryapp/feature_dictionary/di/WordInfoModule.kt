@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import net.virgis.tutorials.dictionaryapp.feature_dictionary.data.local.Converters
 import net.virgis.tutorials.dictionaryapp.feature_dictionary.data.local.WordInfoDao
 import net.virgis.tutorials.dictionaryapp.feature_dictionary.data.local.WordInfoDatabase
 import net.virgis.tutorials.dictionaryapp.feature_dictionary.data.remote.DictionaryApi
@@ -43,7 +44,7 @@ object WordInfoModule {
     fun provideWordInfoDatabase(app: Application): WordInfoDatabase {
         return Room.databaseBuilder(
             app, WordInfoDatabase::class.java, "word_db"
-        ).addTypeConverter(GsonParser(Gson()))
+        ).addTypeConverter(Converters(GsonParser(Gson())))
             .build()
     }
 
